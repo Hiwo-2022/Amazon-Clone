@@ -1,0 +1,36 @@
+.category {
+    height: 350px;
+    width: 290px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .category img {
+    width: 95%;
+    object-fit: contain;
+    max-height: 190px;
+    padding: 0px 10px;
+  }
+  
+  .category a {
+    text-decoration: none;
+    color: rgb(35, 35, 35);
+  }
+  .category h1, .category h2, .category h3 {
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.category p {
+    font-weight: bold;
+    color: #0077cc;
+    margin-top: 72px;
+}
+
+.category__container {
+    position: relative;
+    margin-top: -20%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    place-items: center;
+}
