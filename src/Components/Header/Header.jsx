@@ -3,6 +3,7 @@ import { SlLocationPin } from "react-icons/sl";
 import { BsSearch } from "react-icons/bs";
 import { BiCart } from "react-icons/bi";
 import { FaBars } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import "./Header.css"; // Assuming you have a CSS file for styling
 
 function Header() {
@@ -10,12 +11,12 @@ function Header() {
     <>
       <header className="header">
         <div className="header__logo">
-          <a href="/">
+          <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
             <img
               src="https://pngimg.com/uploads/amazon/amazon_PNG11.png"
               alt="amazon logo"
             />
-          </a>
+          </Link>
         </div>
         <div className="header__location">
           <span>Delivering to Silver Sp... 20904</span>
@@ -42,23 +43,56 @@ function Header() {
             alt="EN"
             className="header__langFlag"
             width="20"
-            
           />
           <span>EN</span>
+          <span style={{ fontSize: "10px", marginLeft: "2px" }}>▼</span>
         </div>
         <div className="header__nav">
           <div className="header__option">
-            <span className="header__optionLineOne">Hello, sign in</span>
-            <span className="header__optionLineTwo">Account & Lists</span>
+            <Link
+              to="/auth"
+              style={{
+                textDecoration: "none",
+                color: "inherit",
+                display: "flex",
+                flexDirection: "column",
+              }}
+            >
+              <span className="header__optionLineOne">Hello, sign in</span>
+              <span className="header__optionLineTwo">
+                Account & Lists{" "}
+                <span style={{ fontSize: "10px", marginLeft: "2px" }}>▼</span>
+              </span>
+            </Link>
           </div>
           <div className="header__option">
-            <span className="header__optionLineOne">Returns</span>
-            <span className="header__optionLineTwo">& Orders</span>
+            <Link
+              to="/orders"
+              style={{
+                textDecoration: "none",
+                color: "inherit",
+                display: "flex",
+                flexDirection: "column",
+              }}
+            >
+              <span className="header__optionLineOne">Returns</span>
+              <span className="header__optionLineTwo">& Orders</span>
+            </Link>
           </div>
           <div className="header__optionCart">
-            <BiCart size={34} />
-            <span className="header__cartCount">0</span>
-            <span className="header__cartLabel">Cart</span>
+            <Link
+              to="/cart"
+              style={{
+                textDecoration: "none",
+                color: "inherit",
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              <BiCart size={34} />
+              <span className="header__cartCount">0</span>
+              <span className="header__cartLabel">Cart</span>
+            </Link>
           </div>
         </div>
       </header>

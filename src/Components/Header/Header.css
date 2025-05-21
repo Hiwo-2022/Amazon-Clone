@@ -14,7 +14,12 @@
   margin-right: 20px;
   margin-left: 5px;
 }
-
+.header__logo img:hover {
+  background: none;
+  border: 2px solid #fff;
+  border-radius: 2px;
+  box-sizing: border-box;
+}
 .header__location {
   display: flex;
   flex-direction: column;
@@ -22,6 +27,13 @@
   margin-left: 10px;
   font-size: 13px;
   color: #d6d6d6;
+}
+.header__location:hover {
+  background: none;
+  border: 2px solid #fff;
+  border-radius: 2px;
+  box-sizing: border-box; 
+  padding: 0px 7px;
 }
 
 .header__locationUpdate {
@@ -94,6 +106,13 @@
   margin: 10px 16px 0 0;
   cursor: pointer;
 }
+.header__lang:hover {
+  background: none;
+  border: 2px solid #fff;
+  border-radius: 2px;
+  box-sizing: border-box;
+  padding: 0px 10px; 
+}
 
 .header__langFlag {
   margin-right: 4px;
@@ -111,6 +130,13 @@
   flex-direction: column;
   margin: 0 10px;
   cursor: pointer;
+}
+.header__option:hover {
+  background: none;
+  border: 2px solid #fff;
+  border-radius: 2px;
+  box-sizing: border-box; 
+  padding: 10px 10px;
 }
 
 .header__optionLineOne {
@@ -131,6 +157,13 @@
   margin-left: 12px;
   cursor: pointer;
   position: relative;
+}
+.header__optionCart:hover {
+  background: none;
+  border: 2px solid #fff;
+  border-radius: 2px;
+  box-sizing: border-box; 
+  padding: 8px 6px;
 }
 
 .header__cartCount {
@@ -185,8 +218,10 @@
 }
 
 .header__navBar li:hover {
-  background: #37475a;
-  border-radius: 2px;
+  background: none;
+  border: 2px solid #fff;
+  border-radius: 1px;
+  box-sizing: border-box;
 }
 
 /* Responsive styles for header */
