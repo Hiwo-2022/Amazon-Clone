@@ -1,14 +1,18 @@
-import React from "react";
+import React,{useContext} from "react";
 import { SlLocationPin } from "react-icons/sl";
 import { BsSearch } from "react-icons/bs";
 import { BiCart } from "react-icons/bi";
 import { FaBars } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import "./Header.css"; // Assuming you have a CSS file for styling
+import "./Header.css";
+import { DataContext } from "../DataProvider/DataProvider";
 
 function Header() {
+  const[{basket},dispatch]=useContext(DataContext)
+   
+  
   return (
-    <>
+    <section className="fixed">
       <header className="header">
         <div className="header__logo">
           <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
@@ -90,7 +94,7 @@ function Header() {
               }}
             >
               <BiCart size={34} />
-              <span className="header__cartCount">0</span>
+              <span className="header__cartCount">{basket.length}</span>
               <span className="header__cartLabel">Cart</span>
             </Link>
           </div>
@@ -116,7 +120,7 @@ function Header() {
           <li>Customer Service</li>
         </ul>
       </nav>
-    </>
+    </section>
   );
 }
 
