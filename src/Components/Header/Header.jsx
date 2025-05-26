@@ -9,7 +9,9 @@ import { DataContext } from "../DataProvider/DataProvider";
 
 function Header() {
   const[{basket},dispatch]=useContext(DataContext)
-   
+  const totalItem = basket?.reduce((amount, item) => {
+    return item.amount + amount;
+  }, 0);
   
   return (
     <section className="fixed">
@@ -94,7 +96,7 @@ function Header() {
               }}
             >
               <BiCart size={34} />
-              <span className="header__cartCount">{basket.length}</span>
+              <span className="header__cartCount">{totalItem}</span>
               <span className="header__cartLabel">Cart</span>
             </Link>
           </div>

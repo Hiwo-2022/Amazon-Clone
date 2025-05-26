@@ -6,7 +6,7 @@ import Rating from "@mui/material/Rating";
 import classes from "./Product.module.css";
 import { Link } from "react-router-dom";
 
-function ProductCard({ product, flex, renderDesc }) {
+function ProductCard({ product, flex, renderDesc,renderAdd }) {
   const { image, title, id, rating, price, description } = product;
   const[state,dispatch]=useContext(DataContext)
 
@@ -46,9 +46,11 @@ function ProductCard({ product, flex, renderDesc }) {
           {/* price */}
           <CurrencyFormat amount={price} />
         </div>
-        <button className={classes.button} onClick={addtoCart}>
+        {
+          renderAdd && <button className={classes.button} onClick={addtoCart}>
           add to cart
           </button>
+        }
       </div>
     </div>
   );
