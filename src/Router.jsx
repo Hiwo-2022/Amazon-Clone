@@ -10,7 +10,7 @@ import ProductDetail from "./Pages/ProductDetail/ProductDetail";
 
 function Routing() {
   return (
-    <Router>
+    
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/auth" element={<SignIn />} />
@@ -20,7 +20,7 @@ function Routing() {
         <Route path="/products/:productId" element={<ProductDetail />} />
         <Route path="/cart" element={<Cart />} />
       </Routes>
-    </Router>
+    
   );
 }
 
