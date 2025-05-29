@@ -11,7 +11,6 @@ import classes from "../../Components/Product/Product.module.css";
 
 function ProductDetail() {
   const { productId } = useParams();
-  console.log("ProductDetail mounted with id:", productId);
   const [isLoading, setisLoading] = useState(false);
   const [product, setproduct] = useState({});
   useEffect(() => {

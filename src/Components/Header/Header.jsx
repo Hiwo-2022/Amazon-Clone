@@ -6,9 +6,10 @@ import { FaBars } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import "./Header.css";
 import { DataContext } from "../DataProvider/DataProvider";
+import {auth} from "../../Utility/firebase";
 
 function Header() {
-  const[{basket},dispatch]=useContext(DataContext)
+  const[{user, basket},dispatch]=useContext(DataContext)
   const totalItem = basket?.reduce((amount, item) => {
     return item.amount + amount;
   }, 0);
@@ -17,7 +18,7 @@ function Header() {
     <section className="fixed">
       <header className="header">
         <div className="header__logo">
-          <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
+          <Link to={"/"} style={{ textDecoration: "none", color: "inherit" }}>
             <img
               src="https://pngimg.com/uploads/amazon/amazon_PNG11.png"
               alt="amazon logo"
@@ -56,7 +57,7 @@ function Header() {
         <div className="header__nav">
           <div className="header__option">
             <Link
-              to="/auth"
+              to={!user && "/auth"}
               style={{
                 textDecoration: "none",
                 color: "inherit",
@@ -64,11 +65,24 @@ function Header() {
                 flexDirection: "column",
               }}
             >
-              <span className="header__optionLineOne">Hello, sign in</span>
-              <span className="header__optionLineTwo">
-                Account & Lists{" "}
-                <span style={{ fontSize: "10px", marginLeft: "2px" }}>▼</span>
-              </span>
+              <div className="header__optionLineOne">
+                {user ? (
+                  <>
+                    <p>Hello, {user?.email?.split("@")[0]}!</p>
+                    <span onClick={()=>auth.signOut()}>Sign Out</span>
+                  </>
+                ) : (
+                  <>
+                    <p>Hello, Sign In</p>
+                    <span className="header__optionLineTwo">
+                      Account & Lists{" "}
+                      <span style={{ fontSize: "10px",}}>
+                        ▼
+                      </span>
+                    </span>
+                  </>
+                )}
+              </div>
             </Link>
           </div>
           <div className="header__option">

@@ -133,8 +133,9 @@
 .header__option {
   display: flex;
   flex-direction: column;
-  margin: 0 10px;
+  margin: 0px 20px;
   cursor: pointer;
+  align-items: center;
 }
 .header__option:hover {
   background: none;
@@ -149,7 +150,10 @@
   font-weight: 300;
   color: #ccc;
 }
-
+.header__optionLineOne p {
+  margin:5px 0px;
+  
+}
 .header__optionLineTwo {
   font-size: 14px;
   font-weight: bold;
