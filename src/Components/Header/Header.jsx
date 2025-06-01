@@ -1,4 +1,4 @@
-import React,{useContext} from "react";
+import React, { useContext } from "react";
 import { SlLocationPin } from "react-icons/sl";
 import { BsSearch } from "react-icons/bs";
 import { BiCart } from "react-icons/bi";
@@ -6,14 +6,14 @@ import { FaBars } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import "./Header.css";
 import { DataContext } from "../DataProvider/DataProvider";
-import {auth} from "../../Utility/firebase";
+import { auth } from "../../Utility/firebase";
 
 function Header() {
-  const[{user, basket},dispatch]=useContext(DataContext)
+  const [{ user, basket }, dispatch] = useContext(DataContext);
   const totalItem = basket?.reduce((amount, item) => {
     return item.amount + amount;
   }, 0);
-  
+
   return (
     <section className="fixed">
       <header className="header">
@@ -69,16 +69,28 @@ function Header() {
                 {user ? (
                   <>
                     <p>Hello, {user?.email?.split("@")[0]}!</p>
-                    <span onClick={()=>auth.signOut()}>Sign Out</span>
+                    <span
+                      onClick={() => {
+                        console.log("Sign Out clicked");
+                        auth
+                          .signOut()
+                          .then(() => {
+                            console.log("User signed out successfully");
+                          })
+                          .catch((error) => {
+                            console.error("Error signing out:", error);
+                          });
+                      }}
+                    >
+                      Sign Out
+                    </span>
                   </>
                 ) : (
                   <>
                     <p>Hello, Sign In</p>
                     <span className="header__optionLineTwo">
                       Account & Lists{" "}
-                      <span style={{ fontSize: "10px",}}>
-                        ▼
-                      </span>
+                      <span style={{ fontSize: "10px" }}>▼</span>
                     </span>
                   </>
                 )}
