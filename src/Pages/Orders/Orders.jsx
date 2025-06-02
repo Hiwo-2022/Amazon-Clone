@@ -4,7 +4,7 @@ import classes from "./Orders.module.css";
 import { db } from "../../Utility/firebase";
 import { DataContext } from "../../Components/DataProvider/DataProvider";
 import ProductCard from "../../Components/Product/ProductCard";
-import { collection, query, orderBy, onSnapshot } from "firebase/firestore"; // <-- ADD THIS
+import { collection, query, orderBy, onSnapshot } from "firebase/firestore"; 
 
 function Orders() {
   const [{ user }, dispatch] = useContext(DataContext);
