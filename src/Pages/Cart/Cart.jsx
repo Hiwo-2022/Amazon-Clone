@@ -54,7 +54,7 @@ function Cart() {
                       className={classes.btn}
                       onClick={() => increment(item)}
                     >
-                      <IoIosArrowUp size={25}/>
+                      <IoIosArrowUp size={25} />
                     </button>
                     <span>{item.amount}</span>
                     <button
@@ -73,7 +73,9 @@ function Cart() {
           <div className={classes.subtotal}>
             <div>
               <p>Subtotal ({basket?.length} items)</p>
-              <CurrencyFormat amount={total} />
+              <div style={{ marginTop: "18px" }}>
+                <CurrencyFormat amount={total} />{" "}
+              </div>
             </div>
             <span>
               <input type="checkbox" />
